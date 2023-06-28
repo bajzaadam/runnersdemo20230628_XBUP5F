@@ -34,4 +34,13 @@ public class RunnerService {
         List<RunnerEntity> runners = runnerRepository.findAll();
         return Collections.max(runners, Comparator.comparing(runner -> runner.getShoeSize()));
     }
+    public double getAveragePaceTime()
+    {
+        List<RunnerEntity> runners = runnerRepository.findAll();
+        double sumPace = 0;
+        for(RunnerEntity runner : runners) {
+            sumPace += runner.getPace();
+        }
+        return sumPace / runners.size();
+    }
 }
