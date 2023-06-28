@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Comparator;
+import java.util.Collections;
 
 @Service
 public class RunnerService {
@@ -27,5 +29,9 @@ public class RunnerService {
         } else {
             return -1.0;
         }
+    }
+    public RunnerEntity getMaxShoeSizeRunner() {
+        List<RunnerEntity> runners = runnerRepository.findAll();
+        return Collections.max(runners, Comparator.comparing(runner -> runner.getShoeSize()));
     }
 }

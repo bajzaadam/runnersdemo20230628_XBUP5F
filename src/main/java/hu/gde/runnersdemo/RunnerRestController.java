@@ -14,11 +14,14 @@ public class RunnerRestController {
     @Autowired
     private LapTimeRepository lapTimeRepository;
     private RunnerRepository runnerRepository;
+    private final RunnerService runnerService;
 
     @Autowired
-    public RunnerRestController(RunnerRepository runnerRepository, LapTimeRepository lapTimeRepository) {
+    public RunnerRestController(RunnerRepository runnerRepository, LapTimeRepository lapTimeRepository, RunnerService runnerService) {
         this.runnerRepository = runnerRepository;
         this.lapTimeRepository = lapTimeRepository;
+        this.runnerService = runnerService;
+
     }
 
     @GetMapping("/{id}")
@@ -61,6 +64,13 @@ public class RunnerRestController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Runner with ID " + id + " not found");
         }
     }
+
+    @GetMapping("/max_shoe_size_runner")
+    public ResponseEntity<String> getMaxShoeSizeRunnerName() {
+        return ResponseEntity.ok(runnerService.getMaxShoeSizeRunner().getRunnerName());
+    }
+
+
     public static class LapTimeRequest {
         private int lapTimeSeconds;
 

@@ -52,4 +52,7 @@ public class RunnerEntity {
     {
         this.shoeSize = shoeSize;
     }
+    public int getShoeSize(){
+        return shoeSize;
+    }
 }
