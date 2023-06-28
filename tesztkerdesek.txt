@@ -1,6 +1,6 @@
-Név:
-Szak:
-Neptun azonosító:
+Név:Bajza Ádám
+Szak: Mérnök Info - TÁV
+Neptun azonosító: XBUP5F
 
 Kérdés 1:
 Melyik az alábbiak közül NEM része a Scrum keretrendszernek?
